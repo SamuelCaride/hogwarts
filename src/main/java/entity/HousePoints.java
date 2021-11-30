@@ -4,6 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "house_points", schema = "hogwarts", catalog = "")
+@NamedQuery(name = "Persona.PuntuacionMasAlta", query = "SELECT p.id, p.nombre, h.points FROM person p JOIN housepoints h ON p.id = h.id WHERE h.points = 100")
+@NamedQuery(name = "Persona.PuntuacionEntregada", query = "SELECT p.id, p.nombre, h.personByGiver FROM person p JOIN housepoints h ON p.id = h.id WHERE h.personByGiver > 98")
 public class HousePoints {
     private int id;
     private Integer points;
